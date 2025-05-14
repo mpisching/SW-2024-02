@@ -15,7 +15,7 @@ CREATE TABLE PRODUTO (
     preco decimal(10,2) not null,
     id_categoria int not null,
     primary key (id)
-);
+) engine=InnoDB;
 
 alter table produto add constraint fk_produto_categoria
 	foreign key(id_categoria) references categoria(id);
