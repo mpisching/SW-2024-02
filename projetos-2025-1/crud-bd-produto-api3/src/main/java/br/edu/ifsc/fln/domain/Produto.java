@@ -2,6 +2,8 @@ package br.edu.ifsc.fln.domain;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +31,7 @@ public class Produto {
 	
 	@ManyToOne
 	@JoinColumn(name="id_fornecedor")
+	@JsonIgnoreProperties("produtos")
 	private Fornecedor fornecedor;
 
 }
