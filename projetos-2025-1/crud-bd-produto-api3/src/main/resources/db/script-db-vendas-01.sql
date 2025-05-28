@@ -26,3 +26,20 @@ INSERT INTO CATEGORIA(DESCRICAO) VALUES ('VESTUÁRIO');
 INSERT INTO PRODUTO(NOME, DESCRICAO, PRECO, ID_CATEGORIA) VALUES ('CAMISETA', 'POLO', 200.0, 2);
 INSERT INTO PRODUTO(NOME, DESCRICAO, PRECO, ID_CATEGORIA) VALUES ('COMPUTADOR', 'DESKTOP', 2000.0, 1);
 INSERT INTO PRODUTO(NOME, DESCRICAO, PRECO, ID_CATEGORIA) VALUES ('NOTEBOOK', 'ULTRABOOK', 6000.0, 1);	
+
+CREATE TABLE fornecedor (
+	id int not null auto_increment,
+    nome varchar(50) not null,
+    email varchar(100) not null,
+    fone varchar(20) not null,
+    primary key(id)
+);
+
+alter table produto add column id_fornecedor int not null;
+
+set foreign_key_checks=0;
+
+alter table produto add constraint fk_produto_fornecedor
+	foreign key(id_fornecedor) references fornecedor(id);
+
+set foreign_key_checks=1;
